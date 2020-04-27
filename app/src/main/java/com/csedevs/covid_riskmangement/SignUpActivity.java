@@ -3,6 +3,9 @@ package com.csedevs.covid_riskmangement;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +20,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.net.Inet6Address;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -62,6 +67,7 @@ public class SignUpActivity extends AppCompatActivity {
                 3. Also create a dataModel in realTime DB and Upload the other information accordingly...
                 */
 
+                //First Step..
                 getData();
 
                 /*Second Step*/
@@ -70,13 +76,14 @@ public class SignUpActivity extends AppCompatActivity {
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    Toast.makeText(SignUpActivity.this, "Hpala", Toast.LENGTH_SHORT).show();
                                     if(task.isSuccessful()){
-                                        Toast.makeText(SignUpActivity.this, "Success"+name, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(SignUpActivity.this, "Success", Toast.LENGTH_SHORT).show();
+
+                                        /*Third Step*/
                                         uploadData();
 
                                     }else{
-                                        Toast.makeText(SignUpActivity.this, "I DOnt why", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(SignUpActivity.this, "Failed SignUp", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
