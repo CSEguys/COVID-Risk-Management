@@ -9,18 +9,28 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button button;
+    private Button foodie, publicie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        //linking xml with the hard coded java..
+        foodie = findViewById(R.id.foodie);
+        publicie = findViewById(R.id.publicie);
+
+        //taking to the respective login pages...
+        foodie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,volunteerActivity.class));
+            }
+        });
+
+        publicie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, SignUpActivity.class));
             }
         });
 
