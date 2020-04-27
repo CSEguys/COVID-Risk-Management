@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "868027570740",
+    "firebase_url": "https://covid-risk-management.firebaseio.com",
+    "project_id": "covid-risk-management",
+    "storage_bucket": "covid-risk-management.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868027570740:android:339fb9df4b1ce6b6be8861",
+        "android_client_info": {
+          "package_name": "com.csedevs.covid_riskmangement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "868027570740-f14svlc26ql2bspu6chg95lop5m4hgs0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.csedevs.covid_riskmangement",
+            "certificate_hash": "dbf6e31338065b7104c27d7a92fe613013640ce6"
+          }
+        },
+        {
+          "client_id": "868027570740-71ml2f9vdq4rq0no2pbrpbgajhff7m48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnWtaCEeGQtDw3acaLJEyT53Nok7Gdljw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "868027570740-71ml2f9vdq4rq0no2pbrpbgajhff7m48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
