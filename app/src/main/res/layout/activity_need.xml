@@ -4,38 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-
-    <Button
-        android:id="@+id/publicie"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btnormal"
-        android:padding="3dp"
-        android:text=" Public signUp "
-        android:textColor="#000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316" />
+    tools:context=".NeedActivity">
 
     <Button
-        android:id="@+id/foodie"
-        android:layout_width="match_parent"
+        android:id="@+id/button"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/btnormal"
-        android:padding="3dp"
-        android:text=" Food_Volunteer "
-        android:textColor="#000"
+        android:text="My Location"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.465" />
+        android:background="@drawable/btnormal"
+        app:layout_constraintVertical_bias="0.415" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:background="@drawable/btnormal"
+        android:layout_height="wrap_content"
+        android:text="Diff Location"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.625" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

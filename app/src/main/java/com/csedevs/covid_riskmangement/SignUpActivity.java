@@ -3,13 +3,13 @@ package com.csedevs.covid_riskmangement;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,10 +18,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.net.Inet6Address;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -31,6 +33,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     //Auth Related inits...
     FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
     DatabaseReference databaseReference;
 
     //Var to hold hardcoded values....
@@ -38,6 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     //DataModel class....
     SignUpData signUpData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +84,16 @@ public class SignUpActivity extends AppCompatActivity {
                                         Toast.makeText(SignUpActivity.this, "Success", Toast.LENGTH_SHORT).show();
 
                                         /*Third Step*/
-                                        uploadData();
+                                        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                                        databaseReference.child(firebaseUser.getUid()).setValue(signUpData)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        Toast.makeText(SignUpActivity.this,"Successful",Toast.LENGTH_LONG);
+                                                        updateUI();
+                                                    }
+                                                });
+
 
                                     }else{
                                         Toast.makeText(SignUpActivity.this, "Failed SignUp", Toast.LENGTH_SHORT).show();
@@ -98,17 +111,15 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
+    private void updateUI() {
+        startActivity(new Intent(SignUpActivity.this, NeedActivity.class));
+    }
+
     private void uploadData() {
 
         //Using the mail part instead of the uniqueId..
         //removing the @domainName.com from the mail Id....
-        databaseReference.child(signUpData.getMail().substring(0,signUpData.getMail().indexOf('@'))).setValue(signUpData)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(SignUpActivity.this,"Successful",Toast.LENGTH_LONG);
-                    }
-                });
+
 
     }
 
@@ -127,8 +138,6 @@ public class SignUpActivity extends AppCompatActivity {
         //Using the setters....
         signUpData.setName(name);
         signUpData.setAge(age);
-        signUpData.setMail(mail);
-        signUpData.setPwd(pwd);
         signUpData.setPhone(phone);
 
     }

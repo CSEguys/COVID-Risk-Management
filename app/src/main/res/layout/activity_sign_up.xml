@@ -14,7 +14,7 @@
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="120sp"
-            android:text="\nSignUp"
+            android:text="\nSIGNUP"
             android:fontFamily="casual"
             android:textAlignment="center"
             android:textSize="30sp"
@@ -22,6 +22,7 @@
 
         <EditText
             android:id="@+id/namegetter"
+            android:padding="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/header"
@@ -32,6 +33,7 @@
 
         <EditText
             android:id="@+id/mailgetter"
+            android:padding="20dp"
             android:layout_width="match_parent"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
@@ -45,6 +47,7 @@
             android:id="@+id/pwdgetter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="20dp"
             android:layout_below="@id/mailgetter"
             android:inputType="textPassword"
             android:layout_marginTop="20dp"
@@ -59,12 +62,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/pwdgetter"
             android:layout_marginTop="20dp"
+            android:padding="20dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:hint="phone"/>
 
         <EditText
             android:id="@+id/agegetter"
+            android:padding="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"

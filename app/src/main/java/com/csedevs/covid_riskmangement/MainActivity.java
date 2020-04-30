@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Button foodie, publicie;
+    public static int NOTIFIER = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +25,16 @@ public class MainActivity extends AppCompatActivity {
         foodie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, foodActivity.class));
             }
         });
+
+
 
         publicie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                NOTIFIER = 0;
                 startActivity(new Intent(MainActivity.this, SignUpActivity.class));
             }
         });
