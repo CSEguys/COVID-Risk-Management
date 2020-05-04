@@ -7,37 +7,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.csedevs.covid_riskmangement.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Button foodie, publicie;
-    public static int NOTIFIER = 0;
+    ActivityMainBinding activityMainBinding;
+
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        //linking xml with the hard coded java..
-        foodie = findViewById(R.id.foodie);
-        publicie = findViewById(R.id.publicie);
+        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = activityMainBinding.getRoot();
+        setContentView(view);
 
-        //taking to the respective login pages...
-        foodie.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, foodActivity.class));
-            }
-        });
-
-
-
-        publicie.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NOTIFIER = 0;
-                startActivity(new Intent(MainActivity.this, SignUpActivity.class));
-            }
-        });
+        firebaseAuth = FirebaseAuth.getInstance();
 
     }
 }
