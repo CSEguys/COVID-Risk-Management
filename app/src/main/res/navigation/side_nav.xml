@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/side_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.csedevs.covid_riskmangement.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_volunteerFragment"
+            app:destination="@id/volunteerFragment"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_homeFragment_to_laborShelterMapping"
+            app:destination="@id/laborShelterMapping"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_homeFragment_to_strandedMigrantTracking"
+            app:destination="@id/strandedMigrantTracking"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_homeFragment_to_needFood"
+            app:destination="@id/needFood"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/volunteerFragment"
+        android:name="com.csedevs.covid_riskmangement.VolunteerFragment"
+        android:label="fragment_volunteer"
+        tools:layout="@layout/fragment_volunteer" >
+        <action
+            android:id="@+id/action_volunteerFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/laborShelterMapping"
+        android:name="com.csedevs.covid_riskmangement.LaborShelterMapping"
+        android:label="fragment_labor_shelter_mapping"
+        tools:layout="@layout/fragment_labor_shelter_mapping" >
+        <action
+            android:id="@+id/action_laborShelterMapping_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/strandedMigrantTracking"
+        android:name="com.csedevs.covid_riskmangement.StrandedMigrantTracking"
+        android:label="fragment_stranded_migrant_tracking"
+        tools:layout="@layout/fragment_stranded_migrant_tracking" >
+        <action
+            android:id="@+id/action_strandedMigrantTracking_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/needFood"
+        android:name="com.csedevs.covid_riskmangement.NeedFood"
+        android:label="fragment_need_food"
+        tools:layout="@layout/fragment_need_food" >
+        <action
+            android:id="@+id/action_needFood_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>

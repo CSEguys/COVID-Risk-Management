@@ -1,10 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp">
+
+        <EditText
+            android:id="@+id/mail"
+            android:layout_width="250dp"
+            android:layout_height="37dp"
+            android:hint="Email"
+            android:paddingLeft="8dp"
+            android:background="@drawable/editext"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="60dp"/>
+
+        <EditText
+            android:id="@+id/pwd"
+            android:layout_width="250dp"
+            android:layout_height="37dp"
+            android:hint="Password"
+            android:background="@drawable/editext"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/mail"
+            android:paddingLeft="8dp"
+            android:inputType="textPassword"/>
+
+        <Button
+            android:id="@+id/enter"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_below="@id/pwd"
+            android:hint="Register"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btnenter"
+            android:layout_marginLeft="30dp"/>
+
+    </RelativeLayout>
+</RelativeLayout>

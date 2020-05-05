@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">COVID-Risk Mangement</string>
-    <string name="title_activity_volunteer_home_page">Map</string>
-    <string name="title_activity_give_food">Map</string>
-    <string name="title_activity_food">Map</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="API">AIzaSyA9N9G9GjoJxCS2Hfo0_lH482xIqfFLXOY</string>
-    <string name="title_activity_volunteer_food">Map</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
 

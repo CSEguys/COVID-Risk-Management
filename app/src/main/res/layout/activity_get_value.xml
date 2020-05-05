@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GetValueActivity"
+    android:background="@drawable/backgroundetail">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp">
+
+        <EditText
+            android:background="@drawable/editext"
+            android:padding="5dp"
+            android:id="@+id/name"
+            android:hint="Your Name"
+            android:textColorHint="@color/colorPrimary"
+            android:layout_width="250dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="36dp"/>
+
+        <EditText
+            android:background="@drawable/editext"
+            android:id="@+id/phone"
+            android:inputType="phone"
+            android:layout_width="250dp"
+            android:padding="5dp"
+            android:hint="Your Phone Number"
+            android:layout_height="38dp"
+            android:layout_below="@id/name"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/age"
+            android:layout_width="250dp"
+            android:layout_height="38dp"
+            android:layout_below="@id/phone"
+            android:padding="5dp"
+            android:hint="Your age"
+            android:background="@drawable/editext"
+            android:layout_marginTop="20dp"
+            android:inputType="number"/>
+
+        <Button
+            android:id="@+id/giveDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/age"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btnenter"
+            android:hint="submit" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

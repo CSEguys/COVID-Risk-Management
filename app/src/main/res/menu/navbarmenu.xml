@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@id/homeFragment"
+            android:title="home"/>
+
+        <item android:id="@id/volunteerFragment"
+            android:title="Food Distributions"/>
+
+        <item android:id="@id/strandedMigrantTracking"
+            android:title="Lost Individual"/>
+
+        <item android:id="@id/laborShelterMapping"
+            android:title="Labor Shelter"/>
+
+        <item android:id="@id/needFood"
+            android:title="Food Requirements"/>
+    </group>
+</menu>
