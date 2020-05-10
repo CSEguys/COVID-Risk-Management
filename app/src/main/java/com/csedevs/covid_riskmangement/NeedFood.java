@@ -42,7 +42,7 @@ public class NeedFood extends Fragment implements View.OnClickListener {
 
     private FusedLocationProviderClient fusedLocationProviderClient;
     private GeoFire geoFire;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference,ref;
     private FirebaseUser firebaseUser;
 
     static Double Lat,Lan;
@@ -65,6 +65,7 @@ public class NeedFood extends Fragment implements View.OnClickListener {
         diffloc = view.findViewById(R.id.diffloc);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("root/needFood");
+        ref = FirebaseDatabase.getInstance().getReference("root/foodies");
         geoFire = new GeoFire(databaseReference);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -111,6 +112,7 @@ public class NeedFood extends Fragment implements View.OnClickListener {
     }
 
     private void uploadLoc() {
+        ref.child(firebaseUser.getUid()).setValue(firebaseUser.getEmail());
         geoFire.setLocation(firebaseUser.getUid(), new GeoLocation(Lat,Lan), new GeoFire.CompletionListener() {
             @Override
             public void onComplete(String key, DatabaseError error) {
