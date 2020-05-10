@@ -2,6 +2,7 @@ package com.csedevs.covid_riskmangement;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
@@ -9,6 +10,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -91,8 +96,16 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
                 binder.drawerlayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.volunteerFragment:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new VolunteerFragment()).commit();
-                binder.drawerlayout.closeDrawer(GravityCompat.START);
+                if(getPref()){
+                    //to assign him as an volunteer in out RTdatabase...
+                    DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("root/volunteers");
+                    databaseReference.child(firebaseUser.getUid()).setValue("volunteer!");
+
+                    //placing the fragemtn as needed...
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new VolunteerFragment()).commit();
+                    binder.drawerlayout.closeDrawer(GravityCompat.START);
+                    break;
+                }
                 break;
             case R.id.laborShelterMapping:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new LaborShelterMapping()).commit();
@@ -109,6 +122,38 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
         }
 
         return true;
+    }
+
+    private boolean getPref() {
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        return true;
+    }
+
+    private boolean getConfession() {
+        final boolean[] answer = {true};
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Are you ready to be a Volunteer??");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                answer[0] =!answer[0];
+                SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(getString(R.string.volunteer),1);
+                editor.commit();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                answer[0] = false;
+            }
+        });
+        builder.show();
+
+        return answer[0];
+
     }
 
     @Override

@@ -14,7 +14,7 @@
         android:paddingTop="10dp"
         android:text="CovidDRM"
         android:textColor="#000"
-        android:textSize="20sp"
+        android:textSize="19sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 

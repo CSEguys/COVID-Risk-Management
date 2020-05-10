@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StrandedMigrantTracking">
+    tools:context=".StrandedMigrantTracking"
+    android:background="@drawable/stranded">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <EditText
+        android:id="@+id/details"
+        android:layout_marginTop="60dp"
+        android:layout_width="300dp"
+        android:layout_height="190dp"
+        android:paddingLeft="20dp"
+        android:hint="Say something if you want to!.."
+        android:background="@drawable/editext"/>
 
-</FrameLayout>
+    <Button
+        android:id="@+id/enroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/details"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="50dp"
+        android:background="#fff"
+        android:padding="10dp"
+        android:text="Update my stranded Location" />
+
+</RelativeLayout>
